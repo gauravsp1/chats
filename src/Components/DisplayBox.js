@@ -1,6 +1,7 @@
 import React from 'react'
 import LikeButton from "./LikeButton"
 import DeleteButton from "./DeleteButton"
+import CommentBox from "./CommentBox"
 
 //Material UI
 import Card from '@material-ui/core/Card';
@@ -51,7 +52,8 @@ function DisplayBox(props) {
         {/* <p>{post.body}</p> */}
         {/* <h2>{post.body}</h2> */}
         <LikeButton postID={post.body}/>
-        <span>5 Likes</span>
+        {/* <span>5 Likes</span> */}
+        <CommentBox/>
         <DeleteButton post={post}/>
         </CardContent>
             </Card>

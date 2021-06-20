@@ -47,14 +47,18 @@ function LikeButton(props) {
         <Tooltip title="Undo like" placement="top" className={classes.likesButton}>
                 <IconButton onClick={unlikePost} className="button">
                 <FavoriteIcon color="primary" />
+                <span>5 Likes</span>
                 </IconButton>
             </Tooltip>
-    ):(
+    ):( <>
         <Tooltip title="Like" placement="top" className={classes.likesButton}>
                 <IconButton onClick={likePost} className="button">
                 <FavoriteBorder color="primary" />
+               
                 </IconButton>
             </Tooltip>
+             <span className="Like">5 Likes</span>
+             </>
     )
 
     return (

@@ -76,3 +76,14 @@ h5{
 .TitleBar{
     margin-left: 898px;
 }
+
+.Comment{
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.87);
+    margin-left: -15px;
+}
+.Like{
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.87);
+    margin-left: -30px;
+}

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { connect } from "react-redux"
-import { logoutUser } from "../Redux/Actions/UserAction"
+import { DataActions, UserActions } from "../Redux/Actions"
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from 'react-router'
 import { dayjs } from 'dayjs'
 import EditDetails from "./EditDetails"
@@ -68,9 +69,13 @@ const useStyles = makeStyles({
 function Profile(props) {
     const classes = useStyles();
     const history = useHistory()
+    const dispatch = useDispatch();
+
+    const user =
+    useSelector((state) => state?.user) || [];
 
     function handleLogout() {
-        props.logoutUser(history)
+        dispatch(UserActions.logoutUser(history))
     }
 
 
@@ -113,19 +118,19 @@ function Profile(props) {
               >
                 @{handle}
               </MuiLink> */}
-                        {props.user.credentials.handle && <Typography variant="body2"><b>Handle:-</b>{props.user.credentials.handle}</Typography>}
+                        {user?.credentials?.handle && <Typography variant="body2"><b>Handle:-</b>{user?.credentials?.handle}</Typography>}
                         <hr />
-                        {props.user.credentials.bio && <Typography variant="body2"><b>Bio:-</b>{props.user.credentials.bio}</Typography>}
+                        {user?.credentials?.bio && <Typography variant="body2"><b>Bio:-</b>{user?.credentials?.bio}</Typography>}
                         <hr />
-                        {props.user.credentials.location && (
+                        {user?.credentials?.location && (
                             <>
-                                <LocationOn color="primary" /> <span><b>Location:-</b>{props.user.credentials.location}</span>
+                                <LocationOn color="primary" /> <span><b>Location:-</b>{user?.credentials?.location}</span>
                                 <hr />
                             </>
                         )}
 
                         <CalendarToday color="primary" />{' '}
-                        <span><b>Joined </b>{props.user.credentials.createdAt}</span>
+                        <span><b>Joined </b>{user?.credentials?.createdAt}</span>
 
                     </div>
                     <EditDetails/>
@@ -136,16 +141,16 @@ function Profile(props) {
     )
 }
 
-function mapStateToProps(state) {
-    return {
-        user: state.user
-    }
-}
-function mapDispatchToProps(dispatch) {
-    return {
-        logoutUser: ((history) => { dispatch(logoutUser(history)) })
-    }
-}
+// function mapStateToProps(state) {
+//     return {
+//         user: state.user
+//     }
+// }
+// function mapDispatchToProps(dispatch) {
+//     return {
+//         logoutUser: ((history) => { dispatch(logoutUser(history)) })
+//     }
+// }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Profile);
+export default Profile;

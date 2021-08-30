@@ -21,7 +21,6 @@ import {
       case CLEAR_ERRORS:
         return {
           ...state,
-          loading: false,
           errors: null
         };
       case LOADING_UI:

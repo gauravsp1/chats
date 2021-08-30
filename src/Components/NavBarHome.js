@@ -1,7 +1,8 @@
 import React from 'react'
 import { connect } from "react-redux"
 import { Link } from 'react-router-dom';
-import { logoutUser } from "../Redux/Actions/UserAction"
+import { DataActions, UserActions } from "../Redux/Actions"
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from 'react-router'
 import Notification from "./Notification"
 
@@ -61,10 +62,10 @@ const BootstrapButton = withStyles({
 function NavBarHome(props) {
     const classes = useStyles();
     const history=useHistory()
-
+    const dispatch = useDispatch();
+    
     function logout(){
-      props.logoutUser(history)
-      console.log("Cliked");
+      dispatch(UserActions.logoutUser(history))
     }
 
     return (    
@@ -92,19 +93,19 @@ function NavBarHome(props) {
 }
 
 
-function  mapStateToProps(state) {
-  return {
-      posts: state.data.posts,
-      loading:state.UI.loading
-  }
-}
+// function  mapStateToProps(state) {
+//   return {
+//       posts: state.data.posts,
+//       loading:state.UI.loading
+//   }
+// }
 
-function  mapDispatchToProps(dispatch) {
-  return {
-    logoutUser:((history)=>{dispatch(logoutUser(history))})
+// function  mapDispatchToProps(dispatch) {
+//   return {
+//     logoutUser:((history)=>{dispatch(logoutUser(history))})
 
-  }
-}
+//   }
+// }
 
 
-export default connect(mapStateToProps,mapDispatchToProps)(NavBarHome); 
+export default NavBarHome; 

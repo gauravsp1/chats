@@ -4,9 +4,9 @@ import UserReducer from "./UserReducer"
 import UIReducer from "./UIReducer"
 
 const rootReducer= combineReducers({
-    user:UserReducer,
-    data:DataReducer,
-    UI:UIReducer
+    "user":UserReducer,
+    "data":DataReducer,
+    "UI":UIReducer
 
 })
 

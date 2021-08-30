@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { connect } from "react-redux"
-import { editUserDetails } from "../Redux/Actions/UserAction"
-
+import { DataActions, UserActions } from "../Redux/Actions"
+import { useDispatch, useSelector } from "react-redux";
 // Material UI 
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
@@ -104,16 +104,19 @@ function EditDetails() {
     )
 }
 
-function mapStateToProps(state) {
-    return {
-        user: state.user
-    }
-}
-function mapDispatchToProps(dispatch) {
-    return {
-        editUserDetails: ((body) => { dispatch(editUserDetails(body)) })
-    }
-}
+// function mapStateToProps(state) {
+//     return {
+//         user: state.user
+//     }
+// }
+// function mapDispatchToProps(dispatch) {
+//     return {
+//         editUserDetails: ((body) => { dispatch(editUserDetails(body)) })
+//     }
+// }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(EditDetails);
+// export default connect(mapStateToProps, mapDispatchToProps)(EditDetails);
+
+
+export default EditDetails;

@@ -1,24 +1,24 @@
 import React from 'react'
 import DisplayBox from './DisplayBox'
 import { connect } from "react-redux"
-import { getPosts } from "../Redux/Actions/DataAction"
+import { DataActions } from "../Redux/Actions"
+import { useDispatch, useSelector } from "react-redux";
 import Profile from "./Profile"
 import AddPost from "./AddPost"
 import axios from 'axios';
 import NavBarHome from './NavBarHome'
+import { useEffect } from 'react';
 
 
-function Home(props) {
+function Home() {
+    const dispatch = useDispatch();
 
-// function onClick(){
-//     const url="https://us-central1-ecstatic-backup-314504.cloudfunctions.net/api/posts"
-//     axios.get(url).then((res) => {
-//         console.log(res.data);
-//     }).catch((err) => {
-//         console.log(err.response.data);
-//     });
-// }
+    const data =
+    useSelector((state) => state?.data) || [];
 
+// useEffect(() => {
+//   dispatch(DataActions.getPosts())  
+// }, [])
 
     return (<>
         <NavBarHome/>
@@ -27,7 +27,7 @@ function Home(props) {
                 <AddPost/>
             </div>
             <div className="DisplayBox">
-                {props.posts.map((post) => {
+                {data?.posts?.map((post) => {
                     return (
                         <DisplayBox post={post} />
                     )
@@ -43,14 +43,17 @@ function Home(props) {
     )
 }
 
-function mapStateToProps(state) {
-    return {
-        posts: state.data.posts
-    }
-}
+// function mapStateToProps(state) {
+//     return {
+//         posts: state.data.posts
+//     }
+// }
 
 
 
 
-export default connect(mapStateToProps, getPosts)(Home);
+// export default connect(mapStateToProps, getPosts)(Home);
+
+
+export default Home;
 

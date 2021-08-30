@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { connect } from "react-redux"
-import {deleteScream} from "../Redux/Actions/DataAction"
-
+import { DataActions } from "../Redux/Actions"
+import { useDispatch, useSelector } from "react-redux";
 
 //Material UI
 import Tooltip from '@material-ui/core/Tooltip';
@@ -80,18 +80,21 @@ function DeleteButton(props) {
     )
 }
 
-function  mapStateToProps(state,ownProps) {
-    return {
-        user: state.user,
-        UI: state.UI,
-        test:ownProps.post
-    }
-}
-function  mapDispatchToProps(dispatch) {
-    return {
-        deleteScream:(postId)=>{dispatch(deleteScream(postId))}
-    }
-}
+// function  mapStateToProps(state,ownProps) {
+//     return {
+//         user: state.user,
+//         UI: state.UI,
+//         test:ownProps.post
+//     }
+// }
+// function  mapDispatchToProps(dispatch) {
+//     return {
+//         deleteScream:(postId)=>{dispatch(deleteScream(postId))}
+//     }
+// }
 
 
-export default connect(mapStateToProps,mapDispatchToProps)(DeleteButton);
+// export default connect(mapStateToProps,mapDispatchToProps)(DeleteButton);
+
+
+export default DeleteButton;

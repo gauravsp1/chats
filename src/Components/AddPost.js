@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 import { connect } from "react-redux"
-import { addContent } from "../Redux/Actions/DataAction"
+import { DataActions } from "../Redux/Actions"
+import { useDispatch, useSelector } from "react-redux";
 
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -30,6 +31,11 @@ const useStyles = makeStyles({
 });
 
 function AddPost(props) {
+    const dispatch = useDispatch();
+
+    const userLoggedIn =
+    useSelector((state) => state?.user) || [];
+
     const classes = useStyles();
     const [open, setOpen] = useState(false);
     const [addPost, setAddPost] = useState({
@@ -115,19 +121,21 @@ function AddPost(props) {
 
 
 
-function  mapStateToProps(state) {
-    return {
-        posts: state.data.posts,
-        loading:state.UI.loading
-    }
-}
+// function  mapStateToProps(state) {
+//     return {
+//         posts: state.data.posts,
+//         loading:state.UI.loading
+//     }
+// }
 
-function  mapDispatchToProps(dispatch) {
-    return {
-        addContent:((body)=>{dispatch(addContent(body))})
+// function  mapDispatchToProps(dispatch) {
+//     return {
+//         addContent:((body)=>{dispatch(addContent(body))})
 
-    }
-}
+//     }
+// }
 
 
-export default connect(mapStateToProps,mapDispatchToProps)(AddPost); 
+// export default connect(mapStateToProps,mapDispatchToProps)(AddPost); 
+
+export default AddPost; 

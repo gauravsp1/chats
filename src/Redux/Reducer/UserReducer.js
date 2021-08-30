@@ -10,15 +10,7 @@ import {
   
   const initialState = {
     authenticated: false,
-    loading: false,
-    credentials: {
-      handle:"user",
-      bio:"Web-Devloper",
-      location:"Karad",
-      createdAt:"2021-06-23"
-    },
-    likes: [],
-    notifications: []
+    loading: false
   };
   
   export default function(state = initialState, action) {

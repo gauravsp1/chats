@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from "react-redux"
-import { likePost } from "../Redux/Actions/DataAction"
-import { unlikePost } from "../Redux/Actions/DataAction"
+import { DataActions } from "../Redux/Actions"
+import { useDispatch, useSelector } from "react-redux";
 
 //Material UI
 import Tooltip from '@material-ui/core/Tooltip';
@@ -68,18 +68,21 @@ function LikeButton(props) {
     )
 }
 
-function  mapStateToProps(state) {
-    return {
-        user: state.user,
-        UI: state.UI
-    }
-}
-function  mapDispatchToProps(dispatch) {
-    return {
-        likePost:(postId)=>{dispatch(likePost(postId))},
-        unlikePost:(postId)=>{dispatch(unlikePost(postId))}
-    }
-}
+// function  mapStateToProps(state) {
+//     return {
+//         user: state.user,
+//         UI: state.UI
+//     }
+// }
+// function  mapDispatchToProps(dispatch) {
+//     return {
+//         likePost:(postId)=>{dispatch(likePost(postId))},
+//         unlikePost:(postId)=>{dispatch(unlikePost(postId))}
+//     }
+// }
 
 
-export default connect(mapStateToProps,mapDispatchToProps)(LikeButton);
+// export default connect(mapStateToProps,mapDispatchToProps)(LikeButton);
+
+
+export default LikeButton;

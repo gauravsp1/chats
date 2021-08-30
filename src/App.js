@@ -13,7 +13,8 @@ import { logoutUser } from './Redux/Actions/UserAction';
 import { useHistory } from 'react-router'
 
 
-axios.defaults.baseURL ="https://us-central1-ecstatic-backup-314504.cloudfunctions.net/api"
+// axios.defaults.baseURL ="https://us-central1-ecstatic-backup-314504.cloudfunctions.net/api"
+axios.defaults.baseURL ="https://europe-west1-socialape-d081e.cloudfunctions.net/api"
    
 
 const token = localStorage.Token;

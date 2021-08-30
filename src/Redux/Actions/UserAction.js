@@ -11,6 +11,7 @@ import {
 import axios from 'axios';
 import { useDispatch, useSelector } from "react-redux";
 import { UserActions } from ".";
+import { DataActions } from "./index";
 
 
 export default {
@@ -24,6 +25,7 @@ export default {
         .then((res) => {
           UserActions.setAuthorizationHeader(res.data.token);
           dispatch(UserActions.getUserData());         
+          // dispatch(DataActions.getPosts());         
           dispatch({ type: STOP_LOADING_UI });
           history.push('/home');
         })
@@ -47,8 +49,8 @@ export default {
         .then((res) => {
           console.log("Sign Api", res.data);
           UserActions.setAuthorizationHeader(res?.data?.token);
-          // dispatch(getUserData());
-          dispatch({ type: CLEAR_ERRORS });
+          dispatch(UserActions.getUserData());
+          // dispatch(DataActions.getPosts());
           dispatch({ type: STOP_LOADING_UI });
           history.push('/home');
         })

@@ -24,12 +24,15 @@ const useStyles = makeStyles({
 
 function LikeButton(props) {
   const classes = useStyles();
+  const dispatch = useDispatch();
+console.log("props",props);
+  const user =
+  useSelector((state) => state?.user);
 
   function  likedPost(){
         if (
-          props.user.likes &&
-          props.user.likes.find(
-            (like) => like.postId === props.postId
+          user?.likes.find(
+            (like) => like.screamId === props.id
           )
         )
           return true;
@@ -37,17 +40,19 @@ function LikeButton(props) {
       };
 
     function  likePost(){
-        props.likePost(props.postId);
+      dispatch(DataActions.likePost(props.id))
+        // props.likePost(props.postId);
       };
     function  unlikePost(){
-        props.unlikePost(props.postId);
+      dispatch(DataActions.unlikePost(props.id))
+
+        // props.unlikePost(props.postId);
       };
 
     const likeButton= likedPost()?(
         <Tooltip title="Undo like" placement="top" className={classes.likesButton}>
                 <IconButton onClick={unlikePost} className="button">
                 <FavoriteIcon color="primary" />
-                <span>5 Likes</span>
                 </IconButton>
             </Tooltip>
     ):( <>
@@ -57,7 +62,6 @@ function LikeButton(props) {
                
                 </IconButton>
             </Tooltip>
-             <span className="Like">5 Likes</span>
              </>
     )
 

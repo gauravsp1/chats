@@ -34,7 +34,9 @@ const useStyles = makeStyles({
 })
 
 function DisplayBox(props) {
+    // const post = props.post;
     const post = props.post;
+    console.log("Ids",post.screamId);
     const classes = useStyles();
     return (<>
               <Card className={classes.card}>
@@ -45,16 +47,14 @@ function DisplayBox(props) {
         />
               <CardContent className={classes.content}>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
-        {post.userHandle}
+        {post?.userHandle}
         </Typography>
-        {/* <Typography variant="body2" color="textSecondary">Created At:{post.createdAt._seconds}</Typography> */}
+        <Typography variant="body2" color="textSecondary">Created At:{post?.createdAt}</Typography>
         <Typography multiline className={classes.body} variant="body1">{post.body}</Typography>
-        {/* <p>{post.body}</p> */}
-        {/* <h2>{post.body}</h2> */}
-        <LikeButton postID={post.body}/>
-        {/* <span>5 Likes</span> */}
-        <CommentBox/>
-        <DeleteButton post={post}/>
+        <LikeButton id={post.screamId}/>
+        <span>{post?.likeCount} Likes</span>
+        {/* <CommentBox/> */}
+        {/* <DeleteButton post={post}/> */}
         </CardContent>
             </Card>
             

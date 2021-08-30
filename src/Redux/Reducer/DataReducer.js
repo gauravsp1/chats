@@ -3,6 +3,7 @@ import {
     LIKE_POST,
     UNLIKE_POST,
     LOADING_DATA,
+    STOP_LOADING_DATA,
     DELETE_POST,
     POST_POST,
     SET_POST,
@@ -16,11 +17,17 @@ import {
   };
   
   export default function(state = initialState, action) {
+    console.log("Test",action.payload);
     switch (action.type) {
       case LOADING_DATA:
         return {
           ...state,
           loading: true
+        };
+      case STOP_LOADING_DATA:
+        return {
+          ...state,
+          loading: false
         };
       case SET_POSTS:
         return {
@@ -34,27 +41,27 @@ import {
           post: action.payload
         };
         
-      case LIKE_POST:
-      case UNLIKE_POST:
-        let index = state.posts.findIndex(
-          (post) => post.postId === action.payload.postId
-        );
-        state.posts[index] = action.payload;
-        if (state.post.postId === action.payload.postId) {
-          state.post = action.payload;
-        }
-        return {
-          ...state
-        };
+      // case LIKE_POST:
+      // case UNLIKE_POST:
+      //   let index = state.posts.findIndex(
+      //     (post) => post.screamId === action.payload.screamId
+      //   );
+      //   state.posts[index] = action.payload;
+      //   if (state.post.screamId === action.payload.screamId) {
+      //     state.post = action.payload;
+      //   }
+      //   return {
+      //     ...state
+      //   };
         
-      case DELETE_POST:
-        index = state.posts.findIndex(
-          (post) => post.postId === action.payload
-        );
-        state.posts.splice(index, 1);
-        return {
-          ...state
-        };
+      // case DELETE_POST:
+      //   index = state.posts.findIndex(
+      //     (post) => post.screamId === action.payload
+      //   );
+      //   state.posts.splice(index, 1);
+      //   return {
+      //     ...state
+      //   };
       case POST_POST:
         return {
           ...state,

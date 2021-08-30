@@ -118,19 +118,19 @@ function Profile(props) {
               >
                 @{handle}
               </MuiLink> */}
-                        {user?.credentials?.handle && <Typography variant="body2"><b>Handle:-</b>{user?.credentials?.handle}</Typography>}
+                        { <Typography variant="body2"><b>Handle:-</b>{user?.credentials?.handle ?? "NA"}</Typography>}
                         <hr />
-                        {user?.credentials?.bio && <Typography variant="body2"><b>Bio:-</b>{user?.credentials?.bio}</Typography>}
+                        {  <Typography variant="body2"><b>Bio:-</b>{user?.credentials?.bio ?? "NA"}</Typography>}
                         <hr />
-                        {user?.credentials?.location && (
+                        { (
                             <>
-                                <LocationOn color="primary" /> <span><b>Location:-</b>{user?.credentials?.location}</span>
+                                <LocationOn color="primary" /> <span><b>Location:-</b>{user?.credentials?.location ?? "NA"}</span>
                                 <hr />
                             </>
                         )}
 
                         <CalendarToday color="primary" />{' '}
-                        <span><b>Joined </b>{user?.credentials?.createdAt}</span>
+                        <span><b>Joined </b>{user?.credentials?.createdAt ?? "NA"}</span>
 
                     </div>
                     <EditDetails/>

@@ -13,12 +13,23 @@ import { useEffect } from 'react';
 function Home() {
     const dispatch = useDispatch();
 
-    const data =
-    useSelector((state) => state?.data) || [];
-
+    const posts =
+    useSelector((state) => state?.data.posts);
+    const loading =
+    useSelector((state) => state?.data.loading);
+console.log("loading",loading);
+console.log("posts",posts);
 // useEffect(() => {
 //   dispatch(DataActions.getPosts())  
 // }, [])
+function onClick(){
+    console.log("Check");
+    dispatch(DataActions.getPosts())
+    // dispatch(DataActions.posts())
+    // axios.get('/screams').then((res) => {
+    //     console.log("Data", res?.data);
+    // })
+}
 
     return (<>
         <NavBarHome/>
@@ -27,14 +38,23 @@ function Home() {
                 <AddPost/>
             </div>
             <div className="DisplayBox">
-                {data?.posts?.map((post) => {
+                {console.log("load",loading)}
+                {!loading?(
+                    posts?.map((post) => {
+                        return (
+                            <DisplayBox post={post} />
+                        )
+                    }
+                    )
+                ):"Loading"}
+                {/* {posts?.map((post) => {
                     return (
                         <DisplayBox post={post} />
                     )
                 }
-                )}
+                )} */}
             </div>
-            {/* <button onClick={onClick}>Click</button> */}
+            <button onClick={onClick}>Click</button>
             <div className="Profile">
                 <Profile/>
             </div>

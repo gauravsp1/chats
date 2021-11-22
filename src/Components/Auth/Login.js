@@ -1,7 +1,7 @@
 import React,{ useState } from 'react'
 import { connect } from "react-redux"
 import { Link } from 'react-router-dom';
-import { DataActions, UserActions } from "../Redux/Actions"
+import { DataActions, UserActions } from "../../Redux/Actions"
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from 'react-router'
 
@@ -10,7 +10,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import NavBar from './NavBar';
+import NavBar from '../Common/NavBar';
 
 
 const useStyles = makeStyles({
@@ -27,6 +27,7 @@ const useStyles = makeStyles({
     position:"relative"
   }
   });
+
 
 
 
@@ -85,20 +86,6 @@ function Login(props) {
     )
 }
 
-// function  mapStateToProps(state) {
-//     return {
-//         user: state.user,
-//         UI: state.UI
-//     }
-// }
-// function  mapDispatchToProps(dispatch) {
-//     return {
-//         loginUser:(user,history)=>{dispatch(loginUser(user,history))}
-//     }
-// }
-
-
-// export default connect(mapStateToProps,mapDispatchToProps)(Login);
 
 
 export default Login;

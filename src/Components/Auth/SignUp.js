@@ -2,16 +2,16 @@ import React,{ useState } from 'react'
 import { Link } from 'react-router-dom';
 import { connect } from "react-redux"
 import axios from 'axios';
-import { DataActions, UserActions } from "../Redux/Actions"
+import { DataActions, UserActions } from "../../Redux/Actions"
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from 'react-router'
+import NavBar from '../Common/NavBar';
 
 //Material UI
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import NavBar from './NavBar';
 import { toast } from 'react-toastify';
 
 
@@ -94,19 +94,5 @@ function SignUp(props) {
     </>
     )
 }
-
-// function  mapStateToProps(state) {
-//     return {
-//         user: state.user,
-//         UI: state.UI
-//     }
-// }
-// function  mapDispatchToProps(dispatch) {
-//     return {
-//         signupUser:(user,history)=>{dispatch(signupUser(user,history))},
-//         Errors:(errors)=>{dispatch(Errors(errors))}
-//     }
-// }
-
 
 export default SignUp;

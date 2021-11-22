@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from "react-redux"
 import { Link } from 'react-router-dom';
-import { DataActions, UserActions } from "../Redux/Actions"
+import { DataActions, UserActions } from "../../Redux/Actions"
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from 'react-router'
 import Notification from "./Notification"

@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from "react-redux"
-import { DataActions } from "../Redux/Actions"
+import { DataActions, UserActions } from "../../Redux/Actions"
 import { useDispatch, useSelector } from "react-redux";
 
 //Material UI

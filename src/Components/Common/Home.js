@@ -1,9 +1,9 @@
 import React from 'react'
-import DisplayBox from './DisplayBox'
+import DisplayBox from '../ChatBox/DisplayBox'
 import { connect } from "react-redux"
-import { DataActions } from "../Redux/Actions"
+import { DataActions } from "../../Redux/Actions"
 import { useDispatch, useSelector } from "react-redux";
-import Profile from "./Profile"
+import Profile from "../UserDetails/Profile"
 import AddPost from "./AddPost"
 import axios from 'axios';
 import NavBarHome from './NavBarHome'
@@ -17,19 +17,7 @@ function Home() {
     useSelector((state) => state?.data.posts);
     const loading =
     useSelector((state) => state?.data.loading);
-console.log("loading",loading);
-console.log("posts",posts);
-// useEffect(() => {
-//   dispatch(DataActions.getPosts())  
-// }, [])
-function onClick(){
-    console.log("Check");
-    dispatch(DataActions.getPosts())
-    // dispatch(DataActions.posts())
-    // axios.get('/screams').then((res) => {
-    //     console.log("Data", res?.data);
-    // })
-}
+
 
     return (<>
         <NavBarHome/>
@@ -38,7 +26,6 @@ function onClick(){
                 <AddPost/>
             </div>
             <div className="DisplayBox">
-                {console.log("load",loading)}
                 {!loading?(
                     posts?.map((post) => {
                         return (
@@ -54,7 +41,6 @@ function onClick(){
                 }
                 )} */}
             </div>
-            <button onClick={onClick}>Click</button>
             <div className="Profile">
                 <Profile/>
             </div>

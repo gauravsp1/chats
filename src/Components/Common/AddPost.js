@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import { connect } from "react-redux"
-import { DataActions } from "../Redux/Actions"
+import { DataActions } from "../../Redux/Actions"
 import { useDispatch, useSelector } from "react-redux";
 
 

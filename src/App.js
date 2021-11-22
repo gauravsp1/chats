@@ -1,9 +1,9 @@
 
 import { Route, Switch } from "react-router-dom";
-import Home from './Components/Home';
-import Login from './Components/Login';
-import NavBar from "./Components/NavBar";
-import SignUp from './Components/SignUp';
+import Home from './Components/Common/Home';
+import Login from './Components/Auth/Login';
+import NavBar from "./Components/Common/NavBar";
+import SignUp from './Components/Auth/SignUp';
 import {Provider} from "react-redux"
 import store from "./Redux/Store"
 import axios from 'axios';
@@ -14,7 +14,7 @@ import { useHistory } from 'react-router'
 
 
 // axios.defaults.baseURL ="https://us-central1-ecstatic-backup-314504.cloudfunctions.net/api"
-axios.defaults.baseURL ="https://europe-west1-socialape-d081e.cloudfunctions.net/api"
+// axios.defaults.baseURL ="https://europe-west1-socialape-d081e.cloudfunctions.net/api"
    
 
 const token = localStorage.Token;

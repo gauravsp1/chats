@@ -1,9 +1,7 @@
 
 import { Route, Switch } from "react-router-dom";
 import Home from './Components/Common/Home';
-import Login from './Components/Auth/Login';
 import NavBar from "./Components/Common/NavBar";
-import SignUp from './Components/Auth/SignUp';
 import {Provider} from "react-redux"
 import store from "./Redux/Store"
 import axios from 'axios';
@@ -11,6 +9,7 @@ import jwtDecode from 'jwt-decode';
 import { SET_AUTHENTICATED } from './Redux/Actions/ActionType';
 import { logoutUser } from './Redux/Actions/UserAction';
 import { useHistory } from 'react-router'
+import LoginSignUp from "./Components/Auth/LoginSignUp";
 
 
 // axios.defaults.baseURL ="https://us-central1-ecstatic-backup-314504.cloudfunctions.net/api"
@@ -21,7 +20,7 @@ const token = localStorage.Token;
 // if (token) {
 //   const decodedToken = jwtDecode(token);
 //   if (decodedToken.exp * 1000 < Date.now()) {
-//     // const history = useHistory()
+    // const history = useHistory()
 //     store.dispatch(logoutUser());
 //     window.location.href = '/';
 //   } else {
@@ -37,8 +36,9 @@ function App() {
       {/* <NavBar/> */}
       <Switch>
       <Route exact path="/home" component={Home} />
-      <Route exact path="/" component={Login} />
-      <Route exact path="/signup" component={SignUp} />
+      <Route exact path="/signup" render={() =><LoginSignUp title='Sign-Up'/>} />
+      <Route exact path="/login" render={() =><LoginSignUp title='Login' />} />
+      <Route exact path="/" render={() =><LoginSignUp title='Login'/>} />
     </Switch>
     </Provider>
     </div>

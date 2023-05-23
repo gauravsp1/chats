@@ -1,0 +1,71 @@
+
+.login-signup-background-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: cursive;
+    background-color: #EBF8F1;
+}
+
+.login-signup-container{
+    box-shadow: 0px 0px 10px #c8bfbb ;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    padding:  0 50px;
+    text-align: center;
+    height: 80vh;
+    background-color: white;
+}
+
+
+.brand-container{
+    display: flex;
+    flex-direction: column;
+    place-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+
+.logo{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+.brand-name{
+    font-size: 22px;
+    font-weight: bolder;
+    margin-bottom: 10px;
+}
+.input-container{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+.input-feild{
+    width: 70%;
+    height: 30px;
+    border-radius: 5px;
+    border:  2px solid #c2b7b7;
+}
+.submit-button{
+    width: 70%;
+    height:  40px;
+    background-color: #00A82D;
+    border-radius:  5px;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+.switch-mode{
+    color: #74BD79;
+    font-size: 17px;
+    text-decoration-line: underline;
+    font-weight: 600;
+    cursor: pointer;
+}

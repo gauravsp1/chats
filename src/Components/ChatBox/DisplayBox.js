@@ -1,65 +1,24 @@
-import React from 'react'
-import LikeButton from "./LikeButton"
-import DeleteButton from "./DeleteButton"
-import CommentBox from "./CommentBox"
-
-//Material UI
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-
-
-const useStyles = makeStyles({
-    card: {
-      position: 'relative',
-      
-      display: 'flex',
-      marginBottom: 20,
-      width:"500px",
-      // height:"150px"
-    },
-    image: {
-      minWidth: 200
-    },
-    content: {
-        objectFit: 'cover'
-        
-      },
-    body:{
-      width: "200px",
-      overflow: 'auto',
-    }
-})
+import React from "react";
+import LikeButton from "./LikeButton";
+import DeleteButton from "./DeleteButton";
+import CommentBox from "./CommentBox";
+import { demoPost } from "../../Demo";
+import "./ChatBox.css";
+import Card from "./Card";
+import { useSelector } from "react-redux";
 
 function DisplayBox(props) {
-    // const post = props.post;
-    const post = props.post;
-    console.log("Ids",post.screamId);
-    const classes = useStyles();
-    return (<>
-              <Card className={classes.card}>
-              <CardMedia
-          image="./images/second.jpeg"
-          title="Profile image"
-          className={classes.image}
-        />
-              <CardContent className={classes.content}>
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
-        {post?.userHandle}
-        </Typography>
-        <Typography variant="body2" color="textSecondary">Created At:{post?.createdAt}</Typography>
-        <Typography multiline className={classes.body} variant="body1">{post.body}</Typography>
-        <LikeButton id={post.screamId}/>
-        <span>{post?.likeCount} Likes</span>
-        {/* <CommentBox/> */}
-        {/* <DeleteButton post={post}/> */}
-        </CardContent>
-            </Card>
-            
-        </>
-    )
+  const posts = useSelector((state) => state?.data.posts);
+
+  return (
+    <>
+      <div className="display-box">
+        {posts.map((item) => {
+          return <Card data={item} key={item.postID} />;
+        })}
+      </div>
+    </>
+  );
 }
 
-export default DisplayBox
+export default DisplayBox;

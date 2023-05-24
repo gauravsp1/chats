@@ -29,29 +29,16 @@ const handleChange=(e)=>{
 }
 
 const handleSubmit =()=>{
-    if(title==='Login'){
-        login()
-    }
-    if(title==='Sign-Up'){
-        signUp()
-    }
+  if(title==='Sign-Up'){
+    localStorage.setItem('userHandler',user.handlerName)
+  }
+setTimeout(()=>{
+  history.push("/home")
+},1000)
 }
-
-
-const login=()=>{
-    dispatch(UserActions.loginUser(user, history));
-  }
-  const signUp=()=>{
-    dispatch(UserActions.signupUser(user, history));
-  }
-
 
 useEffect(()=>{
     const {email,password,confirmPassword,handlerName}=user
-    console.log("eee",email);
-    console.log("eesse",password);
-    console.log("eweee",confirmPassword);
-    console.log("eerdfe",handlerName);
     if(email && password && title==='Login'){
     console.log("In",disableButton);
     setDisableButton(false)
@@ -59,7 +46,6 @@ useEffect(()=>{
 if(email && password && confirmPassword && handlerName && title==='Sign-Up'){
     setDisableButton(false)
 }
-
 },[user])
 
   return (
@@ -115,11 +101,11 @@ if(email && password && confirmPassword && handlerName && title==='Sign-Up'){
           type="submit"
           onClick={()=> handleSubmit()}
           className="submit-button"
-          style={{
-            opacity:disableButton?'0.5':'',
-            cursor:disableButton?'not-allowed':'',
-          }}
-          disabled={disableButton}
+        //   style={{
+        //     opacity:disableButton?'0.5':'',
+        //     cursor:disableButton?'not-allowed':'',
+        //   }}
+        //   disabled={disableButton}
         >
           Continue
         </button>

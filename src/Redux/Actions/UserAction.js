@@ -24,26 +24,7 @@ export default {
       setTimeout(()=>{
         dispatch({ type: STOP_LOADING_UI });
         history.push('/home');
-      },2000)
-
-      // axios
-      //   .post("/login", userData)
-      //   .then((res) => {
-      //     UserActions.setAuthorizationHeader(res.data.token);
-      //     dispatch(UserActions.getUserData());         
-      //     // dispatch(DataActions.getPosts());         
-      //     dispatch({ type: STOP_LOADING_UI });
-      //     history.push('/home');
-      //   })
-      //   .catch((errors) => {
-      //     dispatch({
-      //       type: SET_ERRORS,
-      //       payload: errors?.response?.data?.general
-      //     });
-      //     dispatch({ type: STOP_LOADING_UI });
-      //   });
-
-
+      },1000)
     }
   },
 
@@ -56,41 +37,7 @@ export default {
       setTimeout(()=>{
         dispatch({ type: STOP_LOADING_UI });
         history.push('/home');
-      },2000)
-
-      // axios
-      //   .post("signup", newUserData)
-      //   .then((res) => {
-      //     console.log("Sign Api", res.data);
-      //     UserActions.setAuthorizationHeader(res?.data?.token);
-      //     dispatch(UserActions.getUserData());
-      //     // dispatch(DataActions.getPosts());
-      //     dispatch({ type: STOP_LOADING_UI });
-      //     history.push('/home');
-      //   })
-      //   .catch((errors) => {
-      //     if(errors?.response?.data?.email){
-      //       dispatch({
-      //         type: SET_ERRORS,
-      //         payload: errors?.response?.data?.email
-      //       });
-      //     }
-      //    else if(errors?.response?.data?.handle){
-      //       dispatch({
-      //         type: SET_ERRORS,
-      //         payload: errors?.response?.data?.handle
-      //       });
-      //     }
-      //    else if(errors?.response?.data?.general){
-      //       dispatch({
-      //         type: SET_ERRORS,
-      //         payload: errors?.response?.data?.general
-      //       });
-      //     }
-      //     console.log("Test",errors?.response?.data);
-      //     dispatch({ type: STOP_LOADING_UI });
-      //   });
-
+      },1000)
 
     }
   },

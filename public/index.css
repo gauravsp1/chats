@@ -33,41 +33,6 @@ h5{
     align-items: center;
 }
 
-.HomeContainer{
-    position: relative;
-    display: flex;
-    margin-top: 80px;
-    /* border: 2px solid black; */
-    width: auto;
-    height: auto;
-}
-
-.AddPost{
-    /* border: 2px solid black; */
-    width: 235px;
-    height: 50px;
-    margin-left: 50px;
-}
-
-
-.DisplayBox{
-    /* position: absolute; */
-    /* border: 2px solid black; */
-    display: flex;
-    flex-direction: column;
-    margin-left: -30px;
-    width: 500px;
-    height: auto;
-    align-items: center;
-}
-
-.Profile{
-    /* border: 2px solid black; */
-    width: 300px;
-    /* height: 400px; */
-    margin-left: 110px;
-}
-
 
 .Notification{
     margin-top: 1px;

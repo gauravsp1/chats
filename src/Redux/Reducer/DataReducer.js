@@ -1,3 +1,4 @@
+import { demoPost } from '../../Demo';
 import {
     SET_POSTS,
     LIKE_POST,
@@ -11,7 +12,7 @@ import {
   } from '../Actions/ActionType';
   
   const initialState = {
-    posts: [],
+    posts: [...demoPost],
     post: {},
     loading: false
   };
@@ -19,16 +20,12 @@ import {
   export default function(state = initialState, action) {
     console.log("Test",action.payload);
     switch (action.type) {
-      case LOADING_DATA:
+      case POST_POST:
         return {
           ...state,
-          loading: true
+          posts: [action.payload, ...state.posts]
         };
-      case STOP_LOADING_DATA:
-        return {
-          ...state,
-          loading: false
-        };
+
       case SET_POSTS:
         return {
           ...state,
@@ -62,11 +59,6 @@ import {
       //   return {
       //     ...state
       //   };
-      case POST_POST:
-        return {
-          ...state,
-          posts: [action.payload, ...state.posts]
-        };
         /*
       case SUBMIT_COMMENT:
         return {

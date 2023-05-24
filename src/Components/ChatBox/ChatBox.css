@@ -1,0 +1,42 @@
+
+
+.display-box{
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+}
+.card-container{
+    box-shadow: 0px 0px 7px rgb(106, 102, 102);
+    border-radius: 7px;
+    width: 600px;
+    padding: 20px;
+    background-color: white;
+}
+
+.card-container:hover{
+    box-shadow: 0px 0px 10px rgb(106, 102, 102);
+
+}
+.title-container{
+    display: flex;
+    align-items: center;
+}
+.profile-photo{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.card-post{
+    margin-top: 10px;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.like-container{
+font-size: 12px;
+font-weight: 300;
+display: flex;
+column-gap: 20px;
+}

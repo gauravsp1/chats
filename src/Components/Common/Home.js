@@ -20,6 +20,7 @@ function Home() {
         <div className="body-container">
           <AddPost userHandler={userHandler} />
           <DisplayBox />
+          <Profile />
         </div>
       </div>
     </>

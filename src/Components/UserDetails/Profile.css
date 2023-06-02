@@ -1,0 +1,86 @@
+
+.profile-container{
+    position: relative;
+    width: 24%;
+    height: 400px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    background-color: white;
+    row-gap: 5px;
+    box-shadow: 1px 1px 5px grey;
+}
+.profile-image{
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0px 0px 10px gray;
+}
+.profile-image-edit{
+    width: 45px;
+    position: absolute;
+    right: 20%;
+    top: 50%;
+}
+.profile-details-edit{
+    width: 35px;
+    position: absolute;
+    left: 5%;
+    bottom: 5%;
+}
+.main-container{
+    
+}
+.input-container{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+.input-feild{
+    width: 90%;
+    height: 30px;
+    border-radius: 5px;
+    border:  2px solid #c2b7b7;
+}
+
+dialog {
+    width: 300px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 4px;
+  }
+  
+  dialog h2 {
+    margin-top: 0;
+  }
+  
+  dialog p {
+    margin-bottom: 20px;
+  }
+  
+  .footer{
+    margin-top: 25px;
+    display: flex;
+    column-gap: 10px;
+    justify-content: flex-end;
+  }
+  .butn-close{
+    padding: 10px 20px;
+    background-color: rgb(203, 199, 199);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: white;
+    font-weight: 500;
+  }
+  .butn-save{
+    padding: 10px 20px;
+    background-color: lightblue;
+    font-weight: 600;   
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }

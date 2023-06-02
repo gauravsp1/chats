@@ -11,6 +11,7 @@ justify-content: space-between;
 position: sticky;
 top: 0;
 background-color: azure;
+z-index: 1;
 }
 
 .logo-container{

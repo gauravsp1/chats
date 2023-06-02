@@ -1,156 +1,128 @@
-import React, { useState } from 'react'
-import { connect } from "react-redux"
-import { DataActions, UserActions } from "../../Redux/Actions"
+import React, { useState } from "react";
+import { UserActions } from "../../Redux/Actions";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from 'react-router'
-import { dayjs } from 'dayjs'
-import EditDetails from "./EditDetails"
+import { useHistory } from "react-router";
+import "./Profile.css";
+import ProfileImage from "../../images/first.jpg";
+import EditIcon from "../../images/E2.png";
 
-//Material UI
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-import MuiLink from '@material-ui/core/Link';
-import Paper from '@material-ui/core/Paper';
-import { makeStyles } from '@material-ui/core/styles';
-import Tooltip from '@material-ui/core/Tooltip';
-import IconButton from '@material-ui/core/IconButton';
+function Profile() {
+  const [data, setData] = useState({
+    handler: "",
+    bio: "",
+    location: "",
+    date: null,
+  });
+  const history = useHistory();
+  const dispatch = useDispatch();
 
+  const user = useSelector((state) => state?.user) || [];
 
-// Icons
-import LocationOn from '@material-ui/icons/LocationOn';
-import LinkIcon from '@material-ui/icons/Link';
-import CalendarToday from '@material-ui/icons/CalendarToday';
-import EditIcon from '@material-ui/icons/Edit';
-import KeyboardReturn from '@material-ui/icons/KeyboardReturn';
+  function handleLogout() {
+    dispatch(UserActions.logoutUser(history));
+  }
 
-const useStyles = makeStyles({
-    profile: {
-        '& .image-wrapper': {
-            textAlign: 'center',
-            position: 'relative',
-            '& button': {
-                position: 'absolute',
-                top: '80%',
-                left: '70%'
-            }
-        },
-        '& .profile-image': {
-            width: 200,
-            height: 200,
-            objectFit: 'cover',
-            maxWidth: '100%',
-            borderRadius: '50%',
-            margin: '10px',
+  function handleImageChange(event) {
+    const image = event.target.files[0];
+    console.log("image", image);
+  }
 
-        },
-        '& .profile-details': {
-            textAlign: 'center',
-            '& span, svg': {
-                verticalAlign: 'middle'
-            },
-            '& a': {
-                color: '#00bcd4'
-            }
-        },
-        '& hr': {
-            border: 'none',
-            margin: '0 0 10px 0'
-        },
-        '& svg.button': {
-            '&:hover': {
-                cursor: 'pointer'
-            }
-        }
-    }
+  function handleEditPicture() {
+    const fileInput = document.getElementById("imageInput");
+    fileInput.click();
+  }
+  function openDialog() {
+    let dialog = document.getElementById("myDialog");
+    dialog.showModal();
+  }
 
-})
+  function closeDialog() {
+    let dialog = document.getElementById("myDialog");
+    dialog.close();
+  }
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setData((Previous) => {
+      return { ...Previous, [name]: value };
+    });
+  };
+  return (
+    <div className="profile-container">
+      <img className="profile-image" src={ProfileImage} alt="Profile-Img" />
+      <input
+        type="file"
+        id="imageInput"
+        hidden="hidden"
+        onChange={handleImageChange}
+      />
+      <img
+        className="profile-image-edit"
+        onClick={handleEditPicture}
+        src={EditIcon}
+        alt="Edit-Icon"
+        title="Change Profile Photo"
+      />
 
-
-function Profile(props) {
-    const classes = useStyles();
-    const history = useHistory()
-    const dispatch = useDispatch();
-
-    const user =
-    useSelector((state) => state?.user) || [];
-
-    function handleLogout() {
-        dispatch(UserActions.logoutUser(history))
-    }
-
-
-  function handleImageChange(event){
-        const image = event.target.files[0];
-        const formData = new FormData();
-        formData.append('image', image, image.name);
-        // props.uploadImage(formData);
-      };
-
-      function handleEditPicture(){
-        const fileInput = document.getElementById('imageInput');
-        fileInput.click();
-      };
-    return (
-        <div>
-            <Paper className={classes.paper}>
-                <div className={classes.profile}>
-                    <div className="image-wrapper">
-                        <img src="./images/second.jpeg" alt="profile" className="profile-image" />
-                        <input
-                type="file"
-                id="imageInput"
-                hidden="hidden"
-                onChange={handleImageChange}
-              />
-                        <Tooltip title="Edit profile picture" placement="top">
-                            <IconButton  onClick={handleEditPicture} className="button">
-                                <EditIcon color="primary" />
-                            </IconButton>
-                        </Tooltip>
-                    </div>
-                    <hr />
-                    <div className="profile-details">
-                        {/* <MuiLink
-                component={Link}
-                to={`/users/${handle}`}
-                color="primary"
-                variant="h5"
-              >
-                @{handle}
-              </MuiLink> */}
-                        { <Typography variant="body2"><b>Handle:-</b>{user?.credentials?.handle ?? "NA"}</Typography>}
-                        <hr />
-                        {  <Typography variant="body2"><b>Bio:-</b>{user?.credentials?.bio ?? "NA"}</Typography>}
-                        <hr />
-                        { (
-                            <>
-                                <LocationOn color="primary" /> <span><b>Location:-</b>{user?.credentials?.location ?? "NA"}</span>
-                                <hr />
-                            </>
-                        )}
-
-                        <CalendarToday color="primary" />{' '}
-                        <span><b>Joined </b>{user?.credentials?.createdAt ?? "NA"}</span>
-
-                    </div>
-                    <EditDetails/>
-                    
-                </div>
-            </Paper>
+      <img
+        className="profile-details-edit"
+        src={EditIcon}
+        onClick={openDialog}
+        alt="Edit-Icon"
+        title="Edit Description"
+      />
+      <span>
+        <b>Handle:-</b> Gaurav
+      </span>
+      <span>
+        <b>Bio:-</b> Coder, Artist and much more...
+      </span>
+      <span>
+        <b>Location:-</b> Bangalore
+      </span>
+      <span>
+        <b>Joined On:-</b>1/10/2022
+      </span>
+      <dialog id="myDialog">
+        <h2>Edit Info</h2>
+        <div className="main-container">
+          <div className="input-container">
+            <input
+              type="text"
+              name="handler"
+              className="input-feild"
+              onChange={(e) => handleChange(e)}
+              value={data.handler}
+              placeholder="Handler Name"
+            />
+            <input
+              type="text"
+              name="bio"
+              className="input-feild"
+              onChange={(e) => handleChange(e)}
+              value={data.bio}
+              placeholder="Bio..."
+            />
+            <input
+              type="text"
+              name="location"
+              className="input-feild"
+              onChange={(e) => handleChange(e)}
+              value={data.location}
+              placeholder="Location"
+            />
+          </div>
+          <div className="footer">
+            <button className="butn-close" onClick={closeDialog}>
+              Close
+            </button>
+            <button className="butn-save" onClick={closeDialog}>
+              Save
+            </button>
+          </div>
         </div>
-    )
+      </dialog>
+    </div>
+  );
 }
-
-// function mapStateToProps(state) {
-//     return {
-//         user: state.user
-//     }
-// }
-// function mapDispatchToProps(dispatch) {
-//     return {
-//         logoutUser: ((history) => { dispatch(logoutUser(history)) })
-//     }
-// }
-
 
 export default Profile;

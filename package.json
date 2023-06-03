@@ -1,6 +1,6 @@
 {
-  "name": "chathouse",
-  "homepage": "https://gauravsp1.github.io",
+  "name": "chats",
+  "homepage": "https://gauravsp1.github.io/chats",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

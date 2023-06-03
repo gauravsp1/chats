@@ -7,17 +7,15 @@ import ProfileImage from "../../images/first.jpg";
 import EditIcon from "../../images/E2.png";
 
 function Profile() {
+  const user = useSelector((state) => state?.user?.userData) || [];
+
   const [data, setData] = useState({
-    handler: "",
-    bio: "",
-    location: "",
-    date: null,
+    handler: user.handler,
+    bio: user.bio,
+    location: user.location,
   });
   const history = useHistory();
   const dispatch = useDispatch();
-
-  const user = useSelector((state) => state?.user) || [];
-
   function handleLogout() {
     dispatch(UserActions.logoutUser(history));
   }
@@ -38,6 +36,7 @@ function Profile() {
 
   function closeDialog() {
     let dialog = document.getElementById("myDialog");
+    clearState();
     dialog.close();
   }
   const handleChange = (e) => {
@@ -46,22 +45,34 @@ function Profile() {
       return { ...Previous, [name]: value };
     });
   };
+  const handleSave = () => {
+    dispatch(UserActions.setUserData(data));
+
+    closeDialog();
+  };
+  const clearState = () => {
+    setData({
+      handler: data.handler,
+      bio: data.bio,
+      location: data.location,
+    });
+  };
   return (
     <div className="profile-container">
       <img className="profile-image" src={ProfileImage} alt="Profile-Img" />
-      <input
+      {/* <input
         type="file"
         id="imageInput"
         hidden="hidden"
         onChange={handleImageChange}
-      />
-      <img
+      /> */}
+      {/* <img
         className="profile-image-edit"
         onClick={handleEditPicture}
         src={EditIcon}
         alt="Edit-Icon"
         title="Change Profile Photo"
-      />
+      /> */}
 
       <img
         className="profile-details-edit"
@@ -70,55 +81,55 @@ function Profile() {
         alt="Edit-Icon"
         title="Edit Description"
       />
-      <span>
-        <b>Handle:-</b> Gaurav
-      </span>
-      <span>
-        <b>Bio:-</b> Coder, Artist and much more...
-      </span>
-      <span>
-        <b>Location:-</b> Bangalore
-      </span>
-      <span>
-        <b>Joined On:-</b>1/10/2022
-      </span>
+      <div className="description">
+        <span>
+          <b>Handle:-</b> {user.handler}
+        </span>
+        <span>
+          <b>Bio:-</b> {user.bio.substring(0, 60)}
+        </span>
+        <span>
+          <b>Location:-</b> {user.location}
+        </span>
+        <span>
+          <b>Joined On:-</b>1/10/2022
+        </span>
+      </div>
       <dialog id="myDialog">
         <h2>Edit Info</h2>
-        <div className="main-container">
-          <div className="input-container">
-            <input
-              type="text"
-              name="handler"
-              className="input-feild"
-              onChange={(e) => handleChange(e)}
-              value={data.handler}
-              placeholder="Handler Name"
-            />
-            <input
-              type="text"
-              name="bio"
-              className="input-feild"
-              onChange={(e) => handleChange(e)}
-              value={data.bio}
-              placeholder="Bio..."
-            />
-            <input
-              type="text"
-              name="location"
-              className="input-feild"
-              onChange={(e) => handleChange(e)}
-              value={data.location}
-              placeholder="Location"
-            />
-          </div>
-          <div className="footer">
-            <button className="butn-close" onClick={closeDialog}>
-              Close
-            </button>
-            <button className="butn-save" onClick={closeDialog}>
-              Save
-            </button>
-          </div>
+        <div className="edit-input-container">
+          <input
+            type="text"
+            name="handler"
+            className="edit-input-feild"
+            onChange={(e) => handleChange(e)}
+            value={data.handler}
+            placeholder="Handler Name"
+          />
+          <input
+            type="text"
+            name="location"
+            className="edit-input-feild"
+            onChange={(e) => handleChange(e)}
+            value={data.location}
+            placeholder="Location"
+          />
+          <textarea
+            name="bio"
+            className="edit-input-text-feild"
+            onChange={(e) => handleChange(e)}
+            value={data.bio}
+            rows="8"
+            placeholder="Bio..."
+          />
+        </div>
+        <div className="footer">
+          <button className="butn-close" onClick={closeDialog}>
+            Close
+          </button>
+          <button className="butn-save" onClick={handleSave}>
+            Save
+          </button>
         </div>
       </dialog>
     </div>

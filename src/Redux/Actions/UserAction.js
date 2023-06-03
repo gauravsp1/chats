@@ -6,16 +6,22 @@ import {
   STOP_LOADING_UI,
   SET_UNAUTHENTICATED,
   LOADING_USER,
-  MARK_NOTIFICATIONS_READ
+  MARK_NOTIFICATIONS_READ,
+  SET_USER_DATA
 } from './ActionType';
 import axios from 'axios';
-import { useDispatch, useSelector } from "react-redux";
-import { UserActions } from ".";
-import { DataActions } from "./index";
 
 
 export default {
 
+  setUserData(data){
+    return (dispatch)=>{
+      dispatch({type: SET_USER_DATA, payload:data});
+    }
+  },
+
+
+  
   loginUser(userData, history){
     return (dispatch) => {
       dispatch({ type: LOADING_UI });

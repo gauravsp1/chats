@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import "./Common.css";
 import Profile from "../../images/uwp332474.jpeg";
 import moment from 'moment'
-import  {addPost}  from '../../Redux/Actions/DataAction';
+import { DataActions  } from "../../Redux/Actions";
 
 function AddPost({userHandler}) {
   const dispatch = useDispatch();
@@ -19,7 +19,7 @@ function AddPost({userHandler}) {
       createdAt:moment().format('DD-MM-YYYY'),
       post:post
   }
-  dispatch(addPost(jsonObj))
+  dispatch(DataActions.addPost(jsonObj))
   };
 
   function handleChange(e) {

@@ -28,20 +28,29 @@
 .profile-details-edit{
     width: 35px;
     position: absolute;
-    left: 5%;
+    right: 5%;
     bottom: 5%;
 }
-.main-container{
-    
+.description{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
 }
-.input-container{
+
+.edit-input-container{
     display: flex;
     flex-direction: column;
     row-gap: 10px;
 }
-.input-feild{
+.edit-input-feild{
     width: 90%;
     height: 30px;
+    border-radius: 5px;
+    border:  2px solid #c2b7b7;
+}
+.edit-input-text-feild{
+    width: 90%;
     border-radius: 5px;
     border:  2px solid #c2b7b7;
 }
@@ -50,7 +59,9 @@ dialog {
     width: 300px;
     padding: 20px;
     background-color: white;
-    border-radius: 4px;
+    box-shadow: 1px 1px 8px #323232;
+    border: none;
+    border-radius: 10px;
   }
   
   dialog h2 {

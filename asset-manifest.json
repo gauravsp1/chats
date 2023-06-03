@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/chats/static/css/main.491bfa39.chunk.css",
-    "main.js": "/chats/static/js/main.c18c2267.chunk.js",
-    "main.js.map": "/chats/static/js/main.c18c2267.chunk.js.map",
+    "main.js": "/chats/static/js/main.51f90e9a.chunk.js",
+    "main.js.map": "/chats/static/js/main.51f90e9a.chunk.js.map",
     "runtime-main.js": "/chats/static/js/runtime-main.9f364904.js",
     "runtime-main.js.map": "/chats/static/js/runtime-main.9f364904.js.map",
     "static/css/2.15f8111a.chunk.css": "/chats/static/css/2.15f8111a.chunk.css",
-    "static/js/2.5d325a5d.chunk.js": "/chats/static/js/2.5d325a5d.chunk.js",
-    "static/js/2.5d325a5d.chunk.js.map": "/chats/static/js/2.5d325a5d.chunk.js.map",
+    "static/js/2.399091eb.chunk.js": "/chats/static/js/2.399091eb.chunk.js",
+    "static/js/2.399091eb.chunk.js.map": "/chats/static/js/2.399091eb.chunk.js.map",
     "index.html": "/chats/index.html",
     "static/css/2.15f8111a.chunk.css.map": "/chats/static/css/2.15f8111a.chunk.css.map",
     "static/css/main.491bfa39.chunk.css.map": "/chats/static/css/main.491bfa39.chunk.css.map",
-    "static/js/2.5d325a5d.chunk.js.LICENSE.txt": "/chats/static/js/2.5d325a5d.chunk.js.LICENSE.txt",
+    "static/js/2.399091eb.chunk.js.LICENSE.txt": "/chats/static/js/2.399091eb.chunk.js.LICENSE.txt",
     "static/media/E2.f0682dd5.png": "/chats/static/media/E2.f0682dd5.png",
     "static/media/Logo.89e76fc2.jpg": "/chats/static/media/Logo.89e76fc2.jpg",
     "static/media/NqJ0OAm-deadpool-wallpaper-hd.33521f3d.jpg": "/chats/static/media/NqJ0OAm-deadpool-wallpaper-hd.33521f3d.jpg",
@@ -24,8 +24,8 @@
   "entrypoints": [
     "static/js/runtime-main.9f364904.js",
     "static/css/2.15f8111a.chunk.css",
-    "static/js/2.5d325a5d.chunk.js",
+    "static/js/2.399091eb.chunk.js",
     "static/css/main.491bfa39.chunk.css",
-    "static/js/main.c18c2267.chunk.js"
+    "static/js/main.51f90e9a.chunk.js"
   ]
 }

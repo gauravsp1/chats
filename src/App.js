@@ -31,10 +31,10 @@ function App() {
       <Provider store={store}>
       {/* <NavBar/> */}
       <Switch>
-      <Route exact path="/home" component={Home} />
-      <Route exact path="/signup" render={() =><LoginSignUp title='Sign-Up'/>} />
-      <Route exact path="/login" render={() =><LoginSignUp title='Login' />} />
-      <Route exact path="/" render={() =><LoginSignUp title='Login'/>} />
+      <Route exact path="/chats/home" component={Home} />
+      <Route exact path="/chats/signup" render={() =><LoginSignUp title='Sign-Up'/>} />
+      <Route exact path="/chats/login" render={() =><LoginSignUp title='Login' />} />
+      <Route exact path="/chats" render={() =><LoginSignUp title='Login'/>} />
     </Switch>
     </Provider>
     </div>

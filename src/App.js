@@ -1,5 +1,5 @@
 
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch,Redirect } from "react-router-dom";
 import Home from './Components/Common/Home';
 import NavBar from "./Components/Common/NavBar";
 import {Provider} from "react-redux"
@@ -31,10 +31,11 @@ function App() {
       <Provider store={store}>
       {/* <NavBar/> */}
       <Switch>
-      <Route exact path="/chats/home" component={Home} />
-      <Route exact path="/chats/signup" render={() =><LoginSignUp title='Sign-Up'/>} />
-      <Route exact path="/chats/login" render={() =><LoginSignUp title='Login' />} />
-      <Route exact path="/chats" render={() =><LoginSignUp title='Login'/>} />
+      <Route exact path="/home" component={Home} />
+      <Route exact path="/signup" render={() =><LoginSignUp title='Sign-Up'/>} />
+      <Route exact path="/login" render={() =><LoginSignUp title='Login' />} />
+      <Route exact path="/" render={() =><LoginSignUp title='Login'/>} />
+      <Redirect to="/" />
     </Switch>
     </Provider>
     </div>

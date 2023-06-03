@@ -5,6 +5,7 @@ import { useHistory } from "react-router";
 import "./Profile.css";
 import ProfileImage from "../../images/first.jpg";
 import EditIcon from "../../images/E2.png";
+import { toast } from "react-toastify";
 
 function Profile() {
   const user = useSelector((state) => state?.user?.userData) || [];
@@ -22,7 +23,6 @@ function Profile() {
 
   function handleImageChange(event) {
     const image = event.target.files[0];
-    console.log("image", image);
   }
 
   function handleEditPicture() {
@@ -46,9 +46,12 @@ function Profile() {
     });
   };
   const handleSave = () => {
-    dispatch(UserActions.setUserData(data));
-
-    closeDialog();
+    if (!data.handler || !data.location) {
+      toast.error("Please fill Handler Name and Loaction");
+    } else {
+      dispatch(UserActions.setUserData(data));
+      closeDialog();
+    }
   };
   const clearState = () => {
     setData({

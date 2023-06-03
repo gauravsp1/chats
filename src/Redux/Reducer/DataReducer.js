@@ -18,7 +18,6 @@ import {
   };
   
   export default function(state = initialState, action) {
-    console.log("Test",action.payload);
     switch (action.type) {
       case POST_POST:
         return {

@@ -4,22 +4,29 @@ import "./Common.css";
 import Profile from "../../images/uwp332474.jpeg";
 import moment from 'moment'
 import { DataActions  } from "../../Redux/Actions";
+import { toast } from "react-toastify";
 
 function AddPost({userHandler}) {
   const dispatch = useDispatch();
   const [post, setPost] = useState();
 
   const handleAddPost = () => {
-    let jsonObj={
-      postID:6,
-      userName:userHandler || 'Vikash',
-      image:Profile,
-      likeCount:0,
-      commentCount:0,
-      createdAt:moment().format('DD-MM-YYYY'),
-      post:post
-  }
-  dispatch(DataActions.addPost(jsonObj))
+    if(!post){
+      toast.error("Please write something...")
+    } else{
+      let jsonObj={
+        postID:6,
+        userName:userHandler || 'Gaurav',
+        image:Profile,
+        likeCount:0,
+        commentCount:0,
+        createdAt:moment().format('DD-MM-YYYY'),
+        post:post
+    }
+    dispatch(DataActions.addPost(jsonObj))
+    toast.success("Added Post Successfully")
+    }
+    
   };
 
   function handleChange(e) {

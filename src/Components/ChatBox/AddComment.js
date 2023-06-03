@@ -37,7 +37,6 @@ function AddComment() {
         })
     }
     function handleSubmit() {
-        console.log(state);
         handleClose();
     }
 
